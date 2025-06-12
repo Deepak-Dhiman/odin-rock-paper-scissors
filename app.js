@@ -7,3 +7,9 @@ function getComputerChoice() {
     return "Scissors";
   }
 }
+
+function getHumanChoice() {
+  return prompt("Enter your choice!", "");
+}
+
+console.log(getHumanChoice());
