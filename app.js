@@ -14,21 +14,35 @@ function playRound(humanChoice, computerChoice) {
     (humanChoice === "Paper" && computerChoice === "Rock") ||
     (humanChoice === "Scissors" && computerChoice === "Paper")
   ) {
-    console.log(`You Win! Computer chose ${computerChoice}.`);
+    result.textContent = `You Win! Computer chose ${computerChoice}. Score Human: ${++humanScore} Computer: ${computerScore}`;
   } else if (
     (humanChoice === "Rock" && computerChoice === "Rock") ||
     (humanChoice === "Paper" && computerChoice === "Paper") ||
     (humanChoice === "Scissors" && computerChoice === "Scissors")
   ) {
-    console.log(`It's a draw. Computer chose ${computerChoice}.`);
+    result.textContent = `It's a draw. Computer chose ${computerChoice}. Score Human: ${humanScore} Computer: ${computerScore}`;
   } else {
-    console.log(`You Lose! Computer chose ${computerChoice}.`);
+    result.textContent = `You Lose! Computer chose ${computerChoice}. Score Human: ${humanScore} Computer: ${++computerScore}`;
+  }
+
+  if (humanScore === 5) {
+    result.textContent = "User Wins!";
+    humanScore = 0;
+    computerScore = 0;
+  } else if (computerScore === 5) {
+    result.textContent = "Computer Wins!";
+    humanScore = 0;
+    computerScore = 0;
   }
 }
+
+let humanScore = 0;
+let computerScore = 0;
 
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+const result = document.querySelector(".result");
 
 rock.addEventListener("click", () => {
   playRound("Rock", getComputerChoice());
@@ -39,8 +53,6 @@ paper.addEventListener("click", () => {
 scissors.addEventListener("click", () => {
   playRound("Scissors", getComputerChoice());
 });
-
-
 
 
 /* function getComputerChoice() {
