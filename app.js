@@ -1,4 +1,3 @@
-// Gets computer choice
 function getComputerChoice() {
   if (Math.floor(Math.random() * 3) === 0) {
     return "Rock";
@@ -9,17 +8,59 @@ function getComputerChoice() {
   }
 }
 
-// Gets human choice
+function playRound(humanChoice, computerChoice) {
+  if (
+    (humanChoice === "Rock" && computerChoice === "Scissors") ||
+    (humanChoice === "Paper" && computerChoice === "Rock") ||
+    (humanChoice === "Scissors" && computerChoice === "Paper")
+  ) {
+    console.log(`You Win! Computer chose ${computerChoice}.`);
+  } else if (
+    (humanChoice === "Rock" && computerChoice === "Rock") ||
+    (humanChoice === "Paper" && computerChoice === "Paper") ||
+    (humanChoice === "Scissors" && computerChoice === "Scissors")
+  ) {
+    console.log(`It's a draw. Computer chose ${computerChoice}.`);
+  } else {
+    console.log(`You Lose! Computer chose ${computerChoice}.`);
+  }
+}
+
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
+rock.addEventListener("click", () => {
+  playRound("Rock", getComputerChoice());
+});
+paper.addEventListener("click", () => {
+  playRound("Paper", getComputerChoice());
+});
+scissors.addEventListener("click", () => {
+  playRound("Scissors", getComputerChoice());
+});
+
+
+
+
+/* function getComputerChoice() {
+  if (Math.floor(Math.random() * 3) === 0) {
+    return "Rock";
+  } else if (Math.floor(Math.random() * 3) === 1) {
+    return "Paper";
+  } else {
+    return "Scissors";
+  }
+}
+
 function getHumanChoice() {
   return prompt("Enter your choice!", "");
 }
 
-// Main calling function
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
-  // Main game logic
   function playRound(humanChoice, computerChoice) {
     humanChoice =
       humanChoice.slice(0, 1).toUpperCase() +
@@ -56,3 +97,4 @@ function playGame() {
 }
 
 console.log(playGame());
+ */
