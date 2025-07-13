@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+.container,
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container,
+.buttons {
+  gap: 10px;
+}
+
+.container,
+.buttons button {
+  border: 1px solid white;
+  background-color: transparent;
+}
+
+body {
+  background: url("images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.container {
+  width: 450px;
+  height: 300px;
+  border-radius: 16px;
+  box-shadow: 0 0 7px 7px rgb(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px);
+
+  flex-direction: column;
+}
+
+.buttons button {
+  padding: 7px 14px;
+  border-radius: 7px;
+  color: white;
+}
+
+.result {
+  width: 300px;
+  height: auto;
+  color: white;
+}
